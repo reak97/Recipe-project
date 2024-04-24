@@ -1,10 +1,13 @@
-import React from 'react';
+import React from 'react'; 
+import Header from './Content/Header';
 
 const Home = () => {
   return (
-    <div className="container mt-4">
+
+    <div> 
+      <Header/>
       <h1>PUTO EL QUE LEE XD</h1>
-      <p>¡Aquí puedes encontrar PORNO GAY increíble!</p>
+      <p>¡Aquí puedes encontrar TRAVESTIS ENANOS increíble!</p>
       <button className="btn btn-primary">Haz clic aquí</button>
     </div>
   );
