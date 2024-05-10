@@ -7,8 +7,9 @@ export default function Header() {
         
         <figure>
           
-          <div className='logo'>
-            <img src={logo} alt="Logo Recipe Book	" className='w-50'/>
+          <div className='logo'> 
+          <a  href="/"><img src={logo} alt="Logo Recipe Book	" className='w-100' /></a>
+            
           </div>
 
           <Navbar/>
