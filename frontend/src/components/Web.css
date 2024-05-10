@@ -2,7 +2,25 @@
     display: flex;
 }
 
+
 .w-50{
     max-width: 10%;
+}
+
+
+.flex{
+    display: flex;
+}
+
+.nav-bar{
+    display: flex;
+    justify-content: center;
+}
+
+.ul{
+    display: flex;
+    list-style-type: none;
+    width: 100%;
+    justify-content: space-around;
 }
 
