@@ -1,8 +1,10 @@
-import logo from '../../assets/img/Recipe.PNG'; 
+import logo from '../assets/img/Recipe.PNG'; 
+import Navbar from './Navbar';
 import "./Web.css";
-export default function Menu() {
+export default function Header() {
     return (
-      <header>
+      <header> 
+        <Navbar/>
         <figure>
           <div className='logo'>
             <img src={logo} alt="Logo Recipe Book	" className='w-50'/>
