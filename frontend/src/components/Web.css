@@ -22,5 +22,10 @@
     list-style-type: none;
     width: 100%;
     justify-content: space-around;
+} 
+
+a{
+    text-decoration: none !important; 
+    color: inherit !important;
 }
 

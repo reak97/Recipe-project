@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import Recetas from "./Content/Recetas";
+import Recetas from "./Content/Recetas"; 
+import Contactos from "./Content/Contactos"; 
+import VideosXXX from "./Content/XXX"; 
 
 export default function ContentWrap(){
     return(
@@ -7,9 +9,12 @@ export default function ContentWrap(){
 
        
            <Routes> 
-              <Route path="/recetas" element={<Recetas/>}/> 
-              <Route path="/*" element={<p>404 - página no encontrada</p>}/> 
+              <Route path="/recetas" element={<Recetas/>}/>  
+              <Route path="/contactos" element={<Contactos/>}/> 
+           
             </Routes> 
+            
+
         
 
         </main>

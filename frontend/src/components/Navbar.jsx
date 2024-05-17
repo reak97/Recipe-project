@@ -5,16 +5,16 @@ export default function Navbar() {
         <section className="nav-bar">
             <ul className="ul">
                 <li>
-                    <Link to= "/recetas"> 
+                  <Link to= "/recetas"> 
                     Recetas
-                    </Link>
+                  </Link>
                 </li>
-                <li>
-                    Contactos
+                <li> 
+                  <Link to= "/contactos">
+                    Contactos 
+                  </Link>
                 </li>
-                <li>
-                    VideosXXX
-                </li>
+              
             </ul>
            
         </section>
