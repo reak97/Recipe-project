@@ -1,5 +1,6 @@
 .logo{
     display: flex;
+    justify-content: space-between
 }
 
 
@@ -27,5 +28,11 @@
 a{
     text-decoration: none !important; 
     color: inherit !important;
+} 
+
+.login{
+    margin-right: 5%;
+    margin-top: 5%;
+
 }
 

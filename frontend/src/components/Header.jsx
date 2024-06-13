@@ -1,6 +1,9 @@
 import logo from '../assets/img/Recipe.PNG'; 
 import Navbar from './Navbar';
 import "./Web.css";
+import { IoIosLogIn } from "react-icons/io";
+import SearchBar from './SearchBar'
+
 export default function Header() {
     return (
       <header> 
@@ -9,9 +12,10 @@ export default function Header() {
           
           <div className='logo'> 
           <a  href="/"><img src={logo} alt="Logo Recipe Book	" className='w-100' /></a>
+          <a href="/login" className='login'><IoIosLogIn />Login</a>
             
-          </div>
-
+          </div> 
+          <SearchBar/>
           <Navbar/>
         </figure>
       </header>
