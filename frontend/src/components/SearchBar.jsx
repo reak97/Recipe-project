@@ -1,13 +1,14 @@
-
+import "./Web.css";
+import { GiChickenLeg } from "react-icons/gi";
 export default function App() {
     return (
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+        <div className="search-bar">
             <input 
                 type="text" 
                 placeholder="Buscar..." 
-                style={{ padding: '10px', marginRight: '10px', flex: 1 }}
+                className="search-bar-inside"
             />
-            <button style={{ padding: '10px' }}>Buscar</button>
+            <button className="search-bar-button"><GiChickenLeg /></button>
         </div>
     );
   }

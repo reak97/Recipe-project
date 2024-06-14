@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Recetas from "./Content/Recetas"; 
 import Contactos from "./Content/Contactos"; 
+import Main from './Main';
 
 export default function ContentWrap(){
     return(
@@ -10,8 +11,8 @@ export default function ContentWrap(){
            <Routes> 
               <Route path="/recetas" element={<Recetas/>}/>  
               <Route path="/contactos" element={<Contactos/>}/> 
-           
-            </Routes> 
+              <Route path='/' element={<Main/>}/> 
+           </Routes> 
             
 
         

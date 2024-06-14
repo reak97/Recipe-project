@@ -1,6 +1,7 @@
 import React from 'react'; 
 import Header from './Header';
-import ContentWrap from './Content-wrap';
+import ContentWrap from './Content-wrap'; 
+import Main from './Main';
 
 const Home = () => {
   return (
