@@ -5,7 +5,7 @@
 
 
 .w-100{
-    max-width: 100%;
+    max-width: 50%;
 }
 
 
@@ -85,6 +85,7 @@ a{
 }
 
 .box {
+  background-color: #e0dbc7;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -107,4 +108,13 @@ a{
   width: 450px;
   height: 450px;
   border-radius: 8px;
-}
+} 
+
+main {
+    background-image: url('../assets/img/fondo-home.png');
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+} 
+
+
