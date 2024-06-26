@@ -12,14 +12,13 @@ export default function Header() {
           
           <div className='logo'> 
           <a  href="/"><img src={logo} alt="Logo Recipe Book	" className='w-100' /></a>
-          
           <SearchBar/> 
+          <a href="/login">Login</a>
+          <a href="/register">Register</a>
+            
+          </div>
 
-          <a href="/login" className='login'><IoIosLogIn className='search-bar-icon'/>Login</a>
-           
-          </div> 
-          
-          <Navbar/>
+          <Navbar/> 
         </figure>
       </header>
     );

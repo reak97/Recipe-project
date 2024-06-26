@@ -85,7 +85,7 @@ a{
 }
 
 .box {
-  background-color: #e0dbc7;
+  background-color: #a9a985;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -97,6 +97,7 @@ a{
 .box:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: rgb(85, 105, 50)
 }
 
 .box-content {
@@ -116,5 +117,143 @@ main {
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
 } 
+
+.login-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #a9a985;
+  }
+  
+  .login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input[type="email"],
+  .form-group input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .button-login {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(35, 55, 0);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s
+  }
+  
+  .button-login:hover {
+    background-color: rgb(85, 105, 50);
+  }
+  
+  .forgot-password {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .forgot-password a {
+    color: rgb(35, 55, 0);
+    text-decoration: none;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  } 
+
+  .register-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #a9a985;
+  }
+  
+  .register-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Ocultar el checkbox predeterminado */
+  .custom-checkbox {
+    display: none;
+  }
+  
+  /* Estilo del checkbox personalizado */
+  .custom-checkbox-label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .custom-checkbox-label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    background-color: white;
+  }
+  
+  .custom-checkbox-label::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 5px;
+    height: 10px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  
+  .custom-checkbox:checked + .custom-checkbox-label::before {
+    background-color: rgb(35, 55, 0);
+  }
+  
+  .custom-checkbox:checked + .custom-checkbox-label::after {
+    opacity: 1;
+  }
+  
+  .button-register {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(35, 55, 0);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s
+  }
+  
+  .button-register:hover {
+    background-color: rgb(85, 105, 50);
+  }
 
 
