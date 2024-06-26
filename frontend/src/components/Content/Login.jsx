@@ -19,11 +19,19 @@ export default function Login (){
               Recuérdame
             </label>
           </div>
-          <button type="submit" className='button-login'>Login</button>
-          <div className="forgot-password">
+          <button type="submit" className='button-login'>Login</button> 
+         
+         </form> 
+         
+          <div className='mt-10'>
+            <a href="/register" className='mt-10'> 
+          <button className='button-login'>Crear Cuenta</button>
+          </a>
+          </div>
+         
+        <div className="forgot-password">
             <a href="/forgot-password">¿Olvidaste tu contraseña?</a>
           </div>
-        </form>
       </div>
     )
 }

@@ -3,11 +3,13 @@
     justify-content: space-between
 }
 
-
 .w-100{
     max-width: 50%;
 }
 
+.mt-10{
+  margin-top: 10px;
+}
 
 .flex{
     display: flex;
@@ -32,9 +34,15 @@ a{
 
 .login{
     margin-right: 5%;
-    margin-top: 5%;
+    margin-top: 5%; 
+    width: 100px;
 
 } 
+
+.register{
+  margin-right: 5%;
+  margin-top: 5%;
+}
 
 .search-bar {
     display: flex;
