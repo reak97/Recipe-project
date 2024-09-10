@@ -1,47 +1,50 @@
 const { sequelize } = require(".");
+const { v4: uuidv4 } = require('uuid');
 
 module.exports = (sequelize, DataTypes) => {
     const Model = sequelize.define(
         "Users", 
         {
             id: {
-                type: DataTypes.BIGINT,
-                primaryKey: true,
-                autoIncrement: true,
+                type: DataTypes.UUID,
+                defaultValue: () => uuidv4(),
+                primaryKey: true
               },
               first_name: {
+                field: "firts_name",
                 type: DataTypes.STRING,
-                allowNull: false,
               },
               last_name: {
+                field: "last_name",
                 type: DataTypes.STRING,
-                allowNull: false,
               },
               user_name: {
+                field: "user_name",
                 type: DataTypes.STRING,
-                allowNull: false,
                 unique: true,
               },
               email: {
+                field: "email",
                 type: DataTypes.STRING,
-                allowNull: false,
                 unique: true,
                 validate: {
                   isEmail: true,
                 },
               },
               avatar: {
+                field: "avatar",
                 type: DataTypes.STRING,
-                allowNull: true,
               },
               role: {
                 type: DataTypes.INTEGER,
-                allowNull: false,
-                defaultValue: 0, // Ajusta el valor por defecto según tus necesidades
+                defaultValue: 0, role: {
+                  type: DataTypes.INTEGER,
+                  defaultValue: 0, // 0 para usuario común, 1 para administrador
+                },
               },
               password: {
+                field: "password",
                 type: DataTypes.STRING,
-                allowNull: false,
               }        
         },
         {

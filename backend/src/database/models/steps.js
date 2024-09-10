@@ -1,15 +1,10 @@
-const { Model, DataTypes } = require('sequelize');
+const { sequelize } = require(".");
 
-module.exports = (sequelize) => {
-  class Step extends Model {
-    static associate(models) {
-      // Relación con Recetas
-      Step.belongsTo(models.Recipe, { foreignKey: 'recipeId' });
-    }
-  }
-
-  Step.init({
-    id: {
+module.exports = (sequelize, DataTypes) => {
+  const Model = sequelize.define (
+    "Steps", 
+    {
+      id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
@@ -22,10 +17,13 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-  }, {
-    sequelize,
-    modelName: 'Step',
-  });
+  
+    }, 
+    {
+      tableName: "steps",
+      timestamps: false,
+    }
+  )
 
-  return Step;
+ return Model;
 };

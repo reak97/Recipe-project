@@ -1,29 +1,37 @@
-const { Model, DataTypes } = require('sequelize');
+const { sequelize } = require(".")
 
-module.exports = (sequelize) => {
-  class UsersTypeOfDiet extends Model {}
-
-  UsersTypeOfDiet.init({
-    userId: {
-      type: DataTypes.UUID,
+module.exports = (sequelize, DataTypes) => {
+  const Model = sequelize.define (
+    "Users_type_of_diet",
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+    
+    id_user: {
+      field: "id_user",
+      type: DataTypes.STRING,
       references: {
         model: 'Users',
         key: 'id',
       },
-      allowNull: false,
     },
-    typeOfDietId: {
-      type: DataTypes.INTEGER,
+    id_diet: {
+      field: "id_diet",
+      type: DataTypes.STRING,
       references: {
-        model: 'TypeOfDiet',
-        key: 'id',
-      },
-      allowNull: false,
+        model: "Type_of_diet",
+        key: "id"
+      }
+    }
     },
-  }, {
-    sequelize,
-    modelName: 'UsersTypeOfDiet',
-  });
+    {
+      tableName: "user_type_of_diet",
+      timestamps: false,
+    }
+  ) 
 
-  return UsersTypeOfDiet;
+  return Model;
 };

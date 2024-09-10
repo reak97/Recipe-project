@@ -1,45 +1,43 @@
 const { sequelize } = require(".");
+const { v4: uuidv4 } = require('uuid');
+
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.define(
     "Recipes",
     {
       id: {
-        type: DataTypes.BIGINT,
+        type: DataTypes.UUID,
+        defaultValue: () => uuidv4(),
         primaryKey: true,
-        autoIncrement: true,
       },
       title: {
+        field: "title",
         type: DataTypes.STRING,
-        allowNull: false,
       },
       ingredients: {
+        field: "title",
         type: DataTypes.STRING,
-        allowNull: false,
       },
-      user_id: {
-        type: DataTypes.BIGINT,
-        allowNull: false,
-        references: {
-          model: 'Users', // Nombre de la tabla Users para la clave foránea
-          key: 'id',
-        },
+      id_user: {
+        field: "id_user",
+        type: DataTypes.STRING,
       },
       presentation_photo: {
+        field: "presentation_photo",
         type: DataTypes.STRING,
-        allowNull: true,
       },
       qualification: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
+        field: "qualification",
+        type: DataTypes.FLOAT,
         defaultValue: 0, // Ajusta según tus necesidades
       },
       preparation_time: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        field: "preparation_time",
+        type: DataTypes.FLOAT,
       },
       rations: {
+        field: "rations",
         type: DataTypes.INTEGER,
-        allowNull: false,
       },
     },
     {
