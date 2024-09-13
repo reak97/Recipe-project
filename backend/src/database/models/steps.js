@@ -25,5 +25,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   )
 
+  Model.associate = (db) => {
+    Model.belongsTo (db.Recipes, {
+      as: "recipes",
+      foreignKey: "id_recipe"
+    })
+  }
+
  return Model;
 };

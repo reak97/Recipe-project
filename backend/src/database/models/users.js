@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
                 defaultValue: () => uuidv4(),
                 primaryKey: true
               },
-              first_name: {
+              firts_name: {
                 field: "firts_name",
                 type: DataTypes.STRING,
               },
@@ -52,6 +52,14 @@ module.exports = (sequelize, DataTypes) => {
           timestamps: false, 
         }
     );
+
+    Model.associate = (db) => {
+      Model.hasMany(db.Users_type_of_diet, {
+        as: "users_type_of_diet",
+        foreignKey: 'id_users_type_of_diet'
+      })
+    }
+
     return Model;
   }
 ;

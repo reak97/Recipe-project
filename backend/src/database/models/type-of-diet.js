@@ -19,5 +19,16 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
   });
 
+  Model.associate = (db) => {
+    Model.hasMany (db.Users_type_of_diet, {
+      as: "users_type_of_diet",
+      foreignKey: "id_users_type_of_diet"
+    })
+    Model.hasMany (db.Recipe_type_of_diet, {
+      as: "recipe_type_of_diet",
+      foreignKey: "id_recipe_type_of_diet"
+    })
+  }
+
   return Model;
     }
