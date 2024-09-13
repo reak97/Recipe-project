@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       ingredients: {
-        field: "title",
+        field: "ingredients",
         type: DataTypes.STRING,
       },
       id_user: {
