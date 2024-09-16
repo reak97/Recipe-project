@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.define (
     "Type_of_diet",
     {
-      id: {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -18,6 +18,17 @@ module.exports = (sequelize, DataTypes) => {
     tableName: "type_of_diet",
     timestamps: false,
   });
+
+  Model.associate = (db) => {
+    Model.hasMany (db.Users_type_of_diet, {
+      as: "users_type_of_diet",
+      foreignKey: "id_diet"
+    })
+    Model.hasMany (db.Recipe_type_of_diet, {
+      as: "recipe_type_of_diet",
+      foreignKey: "id_diet"
+    })
+  }
 
   return Model;
     }
