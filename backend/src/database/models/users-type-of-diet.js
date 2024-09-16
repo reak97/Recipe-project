@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Model.belongsTo(db.Type_of_diet, {
       as: "type_of_diet",
-      foreignKey: "id_type_of_diet"
+      foreignKey: "id_diet"
     });
 
   }

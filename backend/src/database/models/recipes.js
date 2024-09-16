@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       ingredients: {
-        field: "title",
+        field: "ingredients",
         type: DataTypes.STRING,
       },
       id_user: {
@@ -49,11 +49,11 @@ module.exports = (sequelize, DataTypes) => {
   Model.associate = (db) => {
     Model.hasMany (db.Recipe_type_of_diet, {
       as: "recipe_type_of_diet",
-      foreignKey: "id_recipe_type_of_diet"
+      foreignKey: "id_recipe"
     })
     Model.hasMany (db.Steps, {
       as: "steps",
-      foreignKEy: "id_steps"
+      foreignKey: "id_recipe"
     })
   }
 
