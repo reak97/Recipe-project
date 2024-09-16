@@ -12,10 +12,22 @@ module.exports = (sequelize, DataTypes) => {
       },
       title: {
         field: "title",
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
+      }, 
+      id_category: {
+        field: "id_category",
+        type: DataTypes.STRING
       },
-      ingredients: {
-        field: "ingredients",
+      id_meal: {
+        field: "id_meal",
+        type: DataTypes.STRING
+      },
+      id_nationality: {
+        field : "id_nationality",
+        type: DataTypes.STRING
+      },
+      id_ingredients: { 
+        field: "id_ingredients",
         type: DataTypes.STRING,
       },
       id_user: {
@@ -38,6 +50,11 @@ module.exports = (sequelize, DataTypes) => {
       rations: {
         field: "rations",
         type: DataTypes.INTEGER,
+      },
+      createdAt: {
+        field: "created_at",
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW, // Fecha y hora actual en el momento de creación
       },
     },
     {
