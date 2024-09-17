@@ -9,21 +9,25 @@ module.exports = (sequelize, DataTypes) => {
                 defaultValue: () => uuidv4(),
                 primaryKey: true,
             },
-            
-            name:{
-                field: "category",
+            name: {
+                field: "name",
                 type: DataTypes.STRING,
-             },
-              },
+                allowNull: false,
+            },
+        },
         { 
-        tableName: "categories",
-        timestamps: false,
-         });
+            tableName: "categories",
+            timestamps: false,
+        }
+    );
 
-Model.associate = (db) => {
-Model.hasMany(db.Recipes, {
-    as: "category",
-    foreignKey: 'id_category' });
-};
+    Model.associate = (db) => {
+        Model.belongsToMany(db.Recipes, {
+            through: db.Recipes_Categories, // Tabla pivot
+            foreignKey: 'id_category',
+            as: "recipes"
+        });
+    };
+
     return Model;
-     };
+};

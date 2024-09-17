@@ -1,39 +1,40 @@
-const { v4: uuidv4 } = require('uuid');
-
 module.exports = (sequelize, DataTypes) => {
-    const Model = sequelize.define(
-        "Nationalities",
-        {
-            id: {
-                type: DataTypes.INTEGER,
-                autoIncrement: true,
-                primaryKey: true,
-              },
-            
-            country_name:{
-                field: "country_name",
-                type: DataTypes.STRING,
-             },
+  const Model = sequelize.define(
+      "Nationalities",
+      {
+          id: {
+              type: DataTypes.INTEGER,
+              autoIncrement: true,
+              primaryKey: true,
+          },
+          country_name: {
+              field: "country_name",
+              type: DataTypes.STRING,
+              allowNull: false,
+          },
+          country_code: {
+              field: "country_code",
+              type: DataTypes.STRING,
+              allowNull: false,
+          },
+          flag: {
+              field: "flag",
+              type: DataTypes.STRING, // URL de la bandera
+          },
+      },
+      { 
+          tableName: "nationalities",
+          timestamps: false,
+      }
+  );
 
-            country_code: {
-                field: "country_code",
-                type: DataTypes.STRING,
-              },
+  Model.associate = (db) => {
+      Model.belongsToMany(db.Recipes, {
+          through: db.Recipes_Nationalities, // Tabla pivot
+          foreignKey: 'id_nationality',
+          as: "recipes"
+      });
+  };
 
-            flag: {
-                field: "flag",
-                type: DataTypes.STRING, // URL de la bandera
-              },
-            },
-        { 
-        tableName: "nationalities",
-        timestamps: false,
-         });
-
-Model.associate = (db) => {
-Model.hasMany(db.Recipes, {
-    as: "nationality",
-    foreignKey: 'id_nationality' });
+  return Model;
 };
-    return Model;
-     };

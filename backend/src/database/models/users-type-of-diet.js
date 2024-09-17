@@ -5,14 +5,14 @@ module.exports = (sequelize, DataTypes) => {
     "Users_type_of_diet",
     {
       id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
+        type: DataTypes.UUID,
+        defaultValue: () => uuidv4(),
         primaryKey: true,
       },
     
     id_user: {
       field: "id_user",
-      type: DataTypes.STRING,
+      type: DataTypes.UUID,
       references: {
         model: 'Users',
         key: 'id',
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     id_diet: {
       field: "id_diet",
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       references: {
         model: "Type_of_diet",
         key: "id"

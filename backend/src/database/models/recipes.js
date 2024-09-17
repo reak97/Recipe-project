@@ -1,4 +1,3 @@
-const { sequelize } = require(".");
 const { v4: uuidv4 } = require('uuid');
 
 module.exports = (sequelize, DataTypes) => {
@@ -12,36 +11,29 @@ module.exports = (sequelize, DataTypes) => {
       },
       title: {
         field: "title",
-        type: DataTypes.STRING
-      }, 
-      id_category: {
-        field: "id_category",
-        type: DataTypes.STRING
-      },
-      id_meal: {
-        field: "id_meal",
-        type: DataTypes.STRING
-      },
-      id_nationality: {
-        field : "id_nationality",
-        type: DataTypes.STRING
-      },
-      id_ingredients: { 
-        field: "id_ingredients",
         type: DataTypes.STRING,
-      },
+        allowNull: false
+      }, 
+      
       id_user: {
         field: "id_user",
         type: DataTypes.STRING,
+        allowNull: false
       },
       presentation_photo: {
         field: "presentation_photo",
         type: DataTypes.STRING,
+        allowNull: false
       },
       qualification: {
         field: "qualification",
         type: DataTypes.FLOAT,
-        defaultValue: 0, // Ajusta según tus necesidades
+        defaultValue: 0.0,
+                validate: {
+                    min: 0,
+                    max: 5
+                }
+        
       },
       preparation_time: {
         field: "preparation_time",
@@ -71,7 +63,39 @@ module.exports = (sequelize, DataTypes) => {
     Model.hasMany (db.Steps, {
       as: "steps",
       foreignKey: "id_recipe"
-    })
+    }) 
+    Model.belongsToMany(db.Category, {
+      through: "Recipe_category", // Tabla pivot para recetas y categorías
+      foreignKey: "id_recipe",
+      otherKey: "id_category",
+      as: "categories",
+    });
+
+    // Asociación con tipo de comida (desayuno, almuerzo, etc.)
+    Model.belongsTo(db.Meal_type, {
+      foreignKey: "id_meal",
+      as: "meal_type",
+    });
+
+    // Asociación con nacionalidad
+    Model.belongsTo(db.Nationality, {
+      foreignKey: "id_nationality",
+      as: "nationality",
+    });
+
+    // Asociación con ingredientes (tabla pivot receta_ingrediente)
+    Model.belongsToMany(db.Ingredient, {
+      through: "Recipe_ingredient", // Tabla pivot para recetas e ingredientes
+      foreignKey: "id_recipe",
+      otherKey: "id_ingredient",
+      as: "ingredients",
+    });
+
+    // Asociación con comentarios
+    Model.hasMany(db.Comment, {
+      as: "comments",
+      foreignKey: "id_recipe",
+    });
   }
 
   return Model;

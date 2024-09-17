@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
 
-module.exports = (sequelize, DataTypes) => {
+mmodule.exports = (sequelize, DataTypes) => {
     const Model = sequelize.define(
         "Ingredients",
         {
@@ -9,21 +9,25 @@ module.exports = (sequelize, DataTypes) => {
                 defaultValue: () => uuidv4(),
                 primaryKey: true,
             },
-            
-            name:{
-                field: "ingredient",
+            name: {
+                field: "name",
                 type: DataTypes.STRING,
-             },
-              },
+                allowNull: false, // Obligatorio
+            },
+        },
         { 
-        tableName: "ingredients",
-        timestamps: false,
-         });
+            tableName: "ingredients",
+            timestamps: false,
+        }
+    );
 
-Model.associate = (db) => {
-Model.hasMany(db.Recipes, {
-    as: "ingredient",
-    foreignKey: 'id_ingredient' });
-};
+    Model.associate = (db) => {
+        Model.belongsToMany(db.Recipes, {
+            through: db.Recipes_Ingredients, // Tabla pivot
+            foreignKey: 'id_ingredient',
+            as: "recipes"
+        });
+    };
+
     return Model;
-     };
+};
