@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: () => uuidv4(),
         primaryKey: true,  
       },
+
     id_recipe: {  
       type: DataTypes.UUID,  
       references: {
@@ -21,9 +22,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    
     order: {
       type: DataTypes.INTEGER,
       allowNull: false,
+    },
+
+    steps_photo: {
+      field: "steps_photo",
+      type: DataTypes.STRING,
     },
     
   

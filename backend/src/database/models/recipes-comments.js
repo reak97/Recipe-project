@@ -32,15 +32,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.TEXT,
                 allowNull: false, // Obligatorio
             },
-            rating: {
-                field: "rating",
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                validate: {
-                    min: 1, // Valor mínimo para la calificación
-                    max: 5 // Valor máximo para la calificación
-                }
-            },
+            
             createdAt: {
                 field: "created_at",
                 type: DataTypes.DATE,
