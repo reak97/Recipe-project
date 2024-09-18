@@ -71,12 +71,6 @@ module.exports = (sequelize, DataTypes) => {
       as: "categories",
     });
 
-    // Asociación con tipo de comida (desayuno, almuerzo, etc.)
-    Model.belongsTo(db.Meal_type, {
-      foreignKey: "id_meal",
-      as: "meal_type",
-    });
-
     // Asociación con nacionalidad
     Model.belongsTo(db.Nationality, {
       foreignKey: "id_nationality",
