@@ -52,11 +52,6 @@ CREATE TABLE Ingredients (
     name VARCHAR(255) NOT NULL
 );
 
--- Tabla de tipos de comidas (meals)
-CREATE TABLE Meals (
-    id UUID PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
-);
 
 -- Tabla de nacionalidades
 CREATE TABLE Nationalities (
@@ -82,15 +77,6 @@ CREATE TABLE Recipes_Ingredients (
     id_ingredient UUID,
     FOREIGN KEY (id_recipe) REFERENCES Recipes(id),
     FOREIGN KEY (id_ingredient) REFERENCES Ingredients(id)
-);
-
--- Tabla de relación muchos a muchos: recetas y tipos de comidas (meals)
-CREATE TABLE Recipes_Meals (
-    id UUID PRIMARY KEY,
-    id_recipe UUID,
-    id_meal UUID,
-    FOREIGN KEY (id_recipe) REFERENCES Recipes(id),
-    FOREIGN KEY (id_meal) REFERENCES Meals(id)
 );
 
 -- Tabla de relación muchos a muchos: recetas y nacionalidades
